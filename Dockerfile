@@ -29,9 +29,8 @@ RUN set -ex \
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
+RUN apk update && apk add git
+
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+
 WORKDIR $GOPATH
-
-RUN apk update
-
-RUN apk add git
